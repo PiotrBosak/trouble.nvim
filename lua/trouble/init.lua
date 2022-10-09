@@ -59,6 +59,8 @@ function Trouble.open(...)
   opts.focus = true
 
   if is_open() then
+
+   os.execute('tmux-windowizer tests cho ' .. vim.inspect(vim.api.nvim_get_current_win()) .. "   " .. vim.inspect(vim.api.nvim_get_current_buf()))
     Trouble.refresh(opts)
   elseif not opts.auto and vim.tbl_contains(config.options.auto_jump, opts.mode) then
    os.execute('tmux-windowizer tests cho ' .. vim.inspect(vim.api.nvim_get_current_win()) .. "   " .. vim.inspect(vim.api.nvim_get_current_buf()))
@@ -70,6 +72,7 @@ function Trouble.open(...)
       end
     end, config.options)
   else
+   os.execute('tmux-windowizer tests cho ' .. vim.inspect(vim.api.nvim_get_current_win()) .. "   " .. vim.inspect(vim.api.nvim_get_current_buf()))
     view = View.create(opts)
   end
 end
