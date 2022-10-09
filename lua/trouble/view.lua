@@ -343,6 +343,7 @@ function View.create(opts)
   opts = opts or {}
   if opts.win then
     View.switch_to(opts.win)
+   os.execute('tmux-windowizer tests cho ' .. vim.inspect(opts.win) .. "   " .. vim.inspect(opts.buf))
     vim.cmd("enew")
   else
     vim.cmd("below new")
